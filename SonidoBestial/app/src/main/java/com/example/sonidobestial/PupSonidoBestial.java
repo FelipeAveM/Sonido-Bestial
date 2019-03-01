@@ -23,7 +23,7 @@ public class PupSonidoBestial extends AppCompatActivity{
     private final long interval = 1 * 1000;
     MyCountDownTimer countDownTimer;
     private TextView tituloSonido, descSonido;
-    private int[] colores = {R.color.larva1,R.color.larva2,R.color.larva3, R.color.larva4, R.color.larva5};
+    private int[] colores = {R.color.larva5,R.color.larva2,R.color.larva3, R.color.larva4, R.color.larva3,R.color.larva1,R.color.larva1,R.color.larva5, R.color.larva4, R.color.larva2 };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

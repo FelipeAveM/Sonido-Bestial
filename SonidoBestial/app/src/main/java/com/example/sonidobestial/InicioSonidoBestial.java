@@ -32,7 +32,6 @@ public class InicioSonidoBestial extends AppCompatActivity {
     private Sonidos sonido;
     private String text;
 
-    public static Map<Integer, ImageView> mapaImagenes;
     public static Map<Integer, Sonidos> mapaSonidos;
 
     @Override
@@ -46,8 +45,7 @@ public class InicioSonidoBestial extends AppCompatActivity {
         sonidos = new ArrayList<Sonidos>();
         pruebaParse = (TextView)findViewById(R.id.pru_parse);
 
-        mapaImagenes = new TreeMap<>();
-        mapaSonidos = new TreeMap<Integer, Sonidos>();
+        mapaSonidos = new TreeMap<>();
 
         InputStream is = null;
 
@@ -139,18 +137,15 @@ public class InicioSonidoBestial extends AppCompatActivity {
                     append(sonido.nombre).append("\n").
                     append(sonido.descripcion).append("\n\n");
 
-            mapaImagenes.put(sonido.id, img);
             mapaSonidos.put(sonido.id, sonido);
         }
         pruebaParse.setText(builder.toString());
-
     }
 
     public void aFunc(View view){
         Intent i = new Intent(this, SonidoBestial.class);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
 
     }
 

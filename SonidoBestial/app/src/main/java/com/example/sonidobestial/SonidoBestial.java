@@ -28,6 +28,7 @@ public class SonidoBestial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sonido_bestial);
         hideNavegationBar();
+
         larva1 = (ImageView)findViewById(R.id.larva_1);
         larva2 = (ImageView)findViewById(R.id.larva_2);
         larva3 = (ImageView)findViewById(R.id.larva_3);
@@ -38,100 +39,52 @@ public class SonidoBestial extends AppCompatActivity {
         larva8 = (ImageView)findViewById(R.id.larva_8);
         larva9 = (ImageView)findViewById(R.id.larva_9);
         larva10 = (ImageView)findViewById(R.id.larva_10);
+
         countDownTimer = new MyCountDownTimer(startTime, interval);
 
-        /*
+        ImageView[] larvitas = {larva1, larva2, larva3, larva4, larva5, larva6, larva7, larva8, larva9, larva10};
 
-        for(final Integer vi: InicioSonidoBestial.mapaImagenes.keySet()){
 
-            InicioSonidoBestial.mapaImagenes.get(vi).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    try {
-                        setSound(vi);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+
+        for (int i = 0; i < larvitas.length; i++){
+
+            if(InicioSonidoBestial.sonidos.size() > i) {
+
+                final int finalI = i;
+                larvitas[i].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (sonido != null) {
+                            sonido.release();
+                        }
+                        try {
+                            setSound(finalI);
+                        }
+                        catch (Exception e){
+
+                        }
+                        indicadorSonido = finalI;
+                        Intent i = new Intent(getApplicationContext(), PupSonidoBestial.class);
+                        startActivity(i);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
                     }
-
-
-                }
-            });
+                });
+            }
+            else{
+                larvitas[i].setVisibility(View.INVISIBLE);
+            }
         }
-        */
-
     }
 
+
+    //Reproducir sonido del XML
     private void setSound(int id) throws IOException {
         File soundFile;
         String soundName = InicioSonidoBestial.mapaSonidos.get(id).getFileName();
         soundFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), soundName +".mp3");
         sonido.setDataSource(getApplicationContext(), Uri.fromFile(soundFile));
         sonido.start();
-    }
-
-
-
-
-    //A los sonidos.
-
-    public void aDescEructo(View view){
-        if(sonido!=null){
-            sonido.release();
-        }
-        sonido = MediaPlayer.create(this, R.raw.uno);
-        sonido.start();
-        indicadorSonido = 0;
-        Intent i = new Intent(this, PupSonidoBestial.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-    }
-
-    public void aDescPedo(View view){
-        if(sonido!=null){
-            sonido.release();
-        }
-        sonido = MediaPlayer.create(this, R.raw.dos);
-        sonido.start();
-        indicadorSonido = 1;
-        Intent i = new Intent(this, PupSonidoBestial.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-    }
-
-    public void aDescCarraspear(View view){
-        if(sonido!=null){
-            sonido.release();
-        }
-        sonido = MediaPlayer.create(this, R.raw.tres);
-        sonido.start();
-        indicadorSonido = 2;
-        Intent i = new Intent(this, PupSonidoBestial.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-    }
-
-    public void aDescPrevomito(View view){
-        if(sonido!=null){
-            sonido.release();
-        }
-        sonido = MediaPlayer.create(this, R.raw.cuatro);
-        sonido.start();
-        indicadorSonido = 3;
-        Intent i = new Intent(this, PupSonidoBestial.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-    }
-
-    public void aDescCucaracha(View view){
-        if(sonido!=null){
-            sonido.release();
-        }
-        sonido = MediaPlayer.create(this, R.raw.cinco);
-        sonido.start();
-        indicadorSonido = 4;
-        Intent i = new Intent(this, PupSonidoBestial.class);
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
     }
 
 
