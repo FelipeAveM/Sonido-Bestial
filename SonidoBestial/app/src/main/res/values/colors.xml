@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="fondo">#171D29</color>
+    <color name="fondo_inicio">#131B26</color>
+    <color name="fondo_descrip">#0E121D</color>
+    <color name="larva1">#D99623</color>
+    <color name="larva2">#56A951</color>
+    <color name="larva3">#754998</color>
+    <color name="larva4">#DD795F</color>
+    <color name="larva5">#66979B</color>
+
+
+</resources>
