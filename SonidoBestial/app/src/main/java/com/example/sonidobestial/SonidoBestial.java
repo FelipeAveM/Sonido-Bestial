@@ -1,7 +1,9 @@
 package com.example.sonidobestial;
 
 import android.content.Intent;
+import android.media.MediaActionSound;
 import android.media.MediaPlayer;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.CountDownTimer;
 import android.os.Environment;
@@ -54,15 +56,7 @@ public class SonidoBestial extends AppCompatActivity {
                 larvitas[i].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (sonido != null) {
-                            sonido.release();
-                        }
-                        try {
-                            setSound(finalI);
-                        }
-                        catch (Exception e){
-
-                        }
+                        setSound(finalI);
                         indicadorSonido = finalI;
                         Intent i = new Intent(getApplicationContext(), PupSonidoBestial.class);
                         startActivity(i);
@@ -79,11 +73,14 @@ public class SonidoBestial extends AppCompatActivity {
 
 
     //Reproducir sonido del XML
-    private void setSound(int id) throws IOException {
+    private void setSound(int id){
+        if(sonido!=null){
+            sonido.release();
+        }
         File soundFile;
-        String soundName = InicioSonidoBestial.mapaSonidos.get(id).getFileName();
+        String soundName = InicioSonidoBestial.sonidos.get(id).getNombre();
         soundFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), soundName +".mp3");
-        sonido.setDataSource(getApplicationContext(), Uri.fromFile(soundFile));
+        sonido = MediaPlayer.create(this, Uri.fromFile(soundFile));
         sonido.start();
     }
 

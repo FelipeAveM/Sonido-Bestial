@@ -2,32 +2,53 @@
 <sonidos>
     <sonido>
         <id>1</id>
-        <fileName>uno</fileName>
-        <nombre>Eructos</nombre>
+        <nombre>Eructo</nombre>
         <descripcion>Se producen principalmente al liberarse el gas que entra a nuestros estómagos cuando tragamos. Es un acto normal y todas las personas lo hacen. De hecho, en algunas culturas un sonoro erupto después de comer se considera un acto de agradecimiento y placer después de una buena comida.</descripcion>
     </sonido>
     <sonido>
         <id>2</id>
-        <fileName>dos</fileName>
         <nombre>Pedos</nombre>
         <descripcion>Los pedos provienen principalmente de la fermentación de carbohidratos presentes en vegetales y granos que nosotros no podemos digerir completamente, y que son el deleite de las bacterias.
             A pesar del olor fétido que produce el sulfuro de hidrógeno, y que en grandes cantidades puede ser tóxico, indicios científicos apuntan a que también nos ayuda a disminuir el riesgo de ataques cardiacos, derrames cerebrales y enfermedades como la diabetes, al ayudar a proteger las mitocondrias de las células.</descripcion>
     </sonido>
     <sonido>
         <id>3</id>
-        <fileName>tres</fileName>
         <nombre>Carraspear</nombre>
         <descripcion>La acción de extraer el moco de la garganta con su subsecuente escupitajo, es el ejemplo perfecto de un sonido que nos asquea. Por un lado, sólo el referente visual que tenemos del resultado final nos produce un fuerte desagrado, pero por otro, la hazaña de carraspear nos recuerda ese instinto básico de deshacernos de aquello que, de lo contrario, tendríamos que tragarnos.</descripcion>
     </sonido>
     <sonido>
         <id>4</id>
-        <fileName>cuatro</fileName>
         <nombre>Arcadas</nombre>
         <descripcion>El sonido de las arcadas justo antes de vomitar es otro sonido premonitorio que puede hacernos temblar de asco. La sola idea de que alguien pueda vomitar a nuestro lado, activa nuestras neuronas espejo. Se trata de un mecanismo específico que permite hacer propias las sensaciones y emociones de los demás, compartiendo su estado afectivo.</descripcion>
     </sonido>
     <sonido>
         <id>5</id>
-        <fileName>cinco</fileName>
+        <nombre>Insecto</nombre>
+        <descripcion>El crujiente sonido que surge cuando pisas una cucaracha enorme es especialmente asqueroso porque te recuerda ese fugaz momento en que la piel de la cucaracha está rompiéndose bajo la presión de tu zapato y sus entrañas, viscosas y pegajosas, están siendo empujadas hacia afuera. Cuando logramos superar ese asco inicial, saber que nuestro accionar acaba con la vida de otro ser vivo, también puede producirnos un profundo asco moral.</descripcion>
+    </sonido>
+    <sonido>
+        <id>6</id>
+        <nombre>Eructo</nombre>
+        <descripcion>Se producen principalmente al liberarse el gas que entra a nuestros estómagos cuando tragamos. Es un acto normal y todas las personas lo hacen. De hecho, en algunas culturas un sonoro erupto después de comer se considera un acto de agradecimiento y placer después de una buena comida.</descripcion>
+    </sonido>
+    <sonido>
+        <id>7</id>
+        <nombre>Pedos</nombre>
+        <descripcion>Los pedos provienen principalmente de la fermentación de carbohidratos presentes en vegetales y granos que nosotros no podemos digerir completamente, y que son el deleite de las bacterias.
+            A pesar del olor fétido que produce el sulfuro de hidrógeno, y que en grandes cantidades puede ser tóxico, indicios científicos apuntan a que también nos ayuda a disminuir el riesgo de ataques cardiacos, derrames cerebrales y enfermedades como la diabetes, al ayudar a proteger las mitocondrias de las células.</descripcion>
+    </sonido>
+    <sonido>
+        <id>8</id>
+        <nombre>Carraspear</nombre>
+        <descripcion>La acción de extraer el moco de la garganta con su subsecuente escupitajo, es el ejemplo perfecto de un sonido que nos asquea. Por un lado, sólo el referente visual que tenemos del resultado final nos produce un fuerte desagrado, pero por otro, la hazaña de carraspear nos recuerda ese instinto básico de deshacernos de aquello que, de lo contrario, tendríamos que tragarnos.</descripcion>
+    </sonido>
+    <sonido>
+        <id>9</id>
+        <nombre>Arcadas</nombre>
+        <descripcion>El sonido de las arcadas justo antes de vomitar es otro sonido premonitorio que puede hacernos temblar de asco. La sola idea de que alguien pueda vomitar a nuestro lado, activa nuestras neuronas espejo. Se trata de un mecanismo específico que permite hacer propias las sensaciones y emociones de los demás, compartiendo su estado afectivo.</descripcion>
+    </sonido>
+    <sonido>
+        <id>10</id>
         <nombre>Insecto</nombre>
         <descripcion>El crujiente sonido que surge cuando pisas una cucaracha enorme es especialmente asqueroso porque te recuerda ese fugaz momento en que la piel de la cucaracha está rompiéndose bajo la presión de tu zapato y sus entrañas, viscosas y pegajosas, están siendo empujadas hacia afuera. Cuando logramos superar ese asco inicial, saber que nuestro accionar acaba con la vida de otro ser vivo, también puede producirnos un profundo asco moral.</descripcion>
     </sonido>

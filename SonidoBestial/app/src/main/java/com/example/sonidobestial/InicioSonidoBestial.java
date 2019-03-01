@@ -15,6 +15,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -32,8 +33,6 @@ public class InicioSonidoBestial extends AppCompatActivity {
     private Sonidos sonido;
     private String text;
 
-    public static Map<Integer, Sonidos> mapaSonidos;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,14 +44,14 @@ public class InicioSonidoBestial extends AppCompatActivity {
         sonidos = new ArrayList<Sonidos>();
         pruebaParse = (TextView)findViewById(R.id.pru_parse);
 
-        mapaSonidos = new TreeMap<>();
-
         InputStream is = null;
+        File datos;
 
 
         //Leer por XML
         try {
-            is = getAssets().open("data.xml");
+            datos = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "data.xml");
+            is = new FileInputStream(datos);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -104,7 +103,7 @@ public class InicioSonidoBestial extends AppCompatActivity {
                              sonido.setId(Integer.parseInt(text));
                          }else if(tagName.equalsIgnoreCase("filaName")){
                              sonido.setFileName(text);
-                         } else if(tagName.equalsIgnoreCase("nombre")){
+                         }else if(tagName.equalsIgnoreCase("nombre")){
                              sonido.setNombre(text);
                          }else if(tagName.equalsIgnoreCase("descripcion")){
                              sonido.setDescripcion(text);
@@ -129,15 +128,11 @@ public class InicioSonidoBestial extends AppCompatActivity {
         StringBuilder builder = new StringBuilder();
 
         for(Sonidos sonido : sonidos){
-            ImageView img = new ImageView(this);
-            File mydr = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), sonido.getFileName()+".png");
-            img.setImageURI(Uri.fromFile(mydr));
             builder.append(sonido.id).append("\n").
                     append(sonido.fileName).append("\n").
                     append(sonido.nombre).append("\n").
                     append(sonido.descripcion).append("\n\n");
 
-            mapaSonidos.put(sonido.id, sonido);
         }
         pruebaParse.setText(builder.toString());
     }
