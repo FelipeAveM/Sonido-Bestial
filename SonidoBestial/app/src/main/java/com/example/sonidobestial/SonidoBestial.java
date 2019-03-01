@@ -85,8 +85,6 @@ public class SonidoBestial extends AppCompatActivity {
         soundFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), soundName +".mp3");
         sonido.setDataSource(getApplicationContext(), Uri.fromFile(soundFile));
         sonido.start();
-
-        
     }
 
 
