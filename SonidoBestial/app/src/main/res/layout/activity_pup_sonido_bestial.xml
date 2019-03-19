@@ -22,17 +22,18 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="785dp"
+        android:layout_width="560dp"
         android:layout_height="285dp"
-        android:layout_marginStart="89dp"
-        android:layout_marginLeft="89dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
         android:layout_marginTop="57dp"
         android:layout_marginEnd="88dp"
         android:layout_marginRight="88dp"
+        android:layout_marginBottom="37dp"
         android:background="@drawable/subfondo_pop"
+        app:layout_constraintBottom_toTopOf="@+id/volver_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/videoView"
         app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
         <TextView
@@ -42,20 +43,17 @@
             android:layout_marginStart="25dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="540dp"
-            android:layout_marginRight="540dp"
             android:text="Titulo"
             android:textColor="@android:color/background_light"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/desc_sonido"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread_inside" />
 
         <TextView
             android:id="@+id/desc_sonido"
-            android:layout_width="732dp"
+            android:layout_width="500dp"
             android:layout_height="197dp"
             android:layout_marginStart="25dp"
             android:layout_marginLeft="25dp"
@@ -85,5 +83,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintCircleRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="263dp"
+        android:layout_height="283dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="138dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
 </android.support.constraint.ConstraintLayout>

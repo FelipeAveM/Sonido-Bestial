@@ -3,7 +3,9 @@ package com.example.sonidobestial;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.CountDownTimer;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,8 +15,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.r0adkll.slidr.Slidr;
+
+import java.io.File;
 
 public class PupSonidoBestial extends AppCompatActivity{
 
@@ -24,6 +29,8 @@ public class PupSonidoBestial extends AppCompatActivity{
     MyCountDownTimer countDownTimer;
     private TextView tituloSonido, descSonido;
     private int[] colores = {R.color.larva5,R.color.larva2,R.color.larva3, R.color.larva4, R.color.larva3,R.color.larva1,R.color.larva1,R.color.larva5, R.color.larva4, R.color.larva2 };
+    private VideoView video;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +43,34 @@ public class PupSonidoBestial extends AppCompatActivity{
         tituloSonido = (TextView)findViewById(R.id.tit_sonido);
         descSonido = (TextView)findViewById(R.id.desc_sonido);
         agregarContenido();
+        video = (VideoView)findViewById(R.id.videoView);
 
+        File videoFile;
+
+        //Video del XML, debe llamarse video.mp4
+        videoFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "video.mp4");
+        String uriPath = String.valueOf(videoFile);
+        video.setVideoURI(Uri.parse(uriPath));
+        video.requestFocus();
+        video.start();
+
+        //Fuentes
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/maax_rounded_medium_italic.otf");
         tituloSonido.setTypeface(font);
-
         Typeface fontD = Typeface.createFromAsset(getAssets(), "fonts/maax_rounded.otf");
         descSonido.setTypeface(fontD);
 
         volver.setTypeface(font );
 
 
+
+    }
+
+    public void getVideo(VideoView videoName){
+
+        //videoName.setVideoURI(Uri.parse(uriPath));
+        videoName.requestFocus();
+        videoName.start();
 
     }
 

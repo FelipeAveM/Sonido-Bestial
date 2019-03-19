@@ -72,7 +72,7 @@ public class SonidoBestial extends AppCompatActivity {
     }
 
 
-    //Reproducir sonido del XML
+    //Reproducir audio del XML tiene que llamarse como el nombre del sonido en el xml ej: Eructo.mp3
     private void setSound(int id){
         if(sonido!=null){
             sonido.release();
