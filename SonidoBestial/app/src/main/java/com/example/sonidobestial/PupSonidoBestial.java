@@ -1,19 +1,15 @@
 package com.example.sonidobestial;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.CountDownTimer;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -23,9 +19,10 @@ import java.io.File;
 
 public class PupSonidoBestial extends AppCompatActivity{
 
-    private Button volver;
+    private Button volver, reply;
     private long startTime=3*60*1000; // uno MINS IDLE TIME
     private final long interval = 1 * 1000;
+    private MediaPlayer sonido;
     MyCountDownTimer countDownTimer;
     private TextView tituloSonido, descSonido;
     private int[] colores = {R.color.larva5,R.color.larva2,R.color.larva3, R.color.larva4, R.color.larva3,R.color.larva1,R.color.larva1,R.color.larva5, R.color.larva4, R.color.larva2 };
@@ -40,50 +37,64 @@ public class PupSonidoBestial extends AppCompatActivity{
         Slidr.attach(this);
         countDownTimer = new MyCountDownTimer(startTime, interval);
         volver = (Button)findViewById(R.id.volver_btn);
+        reply = (Button)findViewById(R.id.reply_btn);
         tituloSonido = (TextView)findViewById(R.id.tit_sonido);
         descSonido = (TextView)findViewById(R.id.desc_sonido);
         agregarContenido();
-        video = (VideoView)findViewById(R.id.videoView);
-
-        File videoFile;
-
-        //Video del XML, debe llamarse video.mp4
-        videoFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "video.mp4");
-        String uriPath = String.valueOf(videoFile);
-        video.setVideoURI(Uri.parse(uriPath));
-        video.requestFocus();
-        video.start();
+        setSound(SonidoBestial.getIndicadorSonido());
+        getVideo();
+        SonidoBestial.getIndicadorSonido();
 
         //Fuentes
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/maax_rounded_medium_italic.otf");
         tituloSonido.setTypeface(font);
         Typeface fontD = Typeface.createFromAsset(getAssets(), "fonts/maax_rounded.otf");
         descSonido.setTypeface(fontD);
+        reply.setTypeface(font);
+        volver.setTypeface(font);
 
-        volver.setTypeface(font );
 
-
-
-    }
-
-    public void getVideo(VideoView videoName){
-
-        //videoName.setVideoURI(Uri.parse(uriPath));
-        videoName.requestFocus();
-        videoName.start();
 
     }
 
+    public void getVideo(){
+
+        video = (VideoView)findViewById(R.id.videoView);
+        File videoFile;
+        videoFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "video.mp4");
+        String uriPath = String.valueOf(videoFile);
+        video.setVideoURI(Uri.parse(uriPath));
+        video.requestFocus();
+        video.start();
+
+    }
+    //Reproducir audio del XML tiene que llamarse como el nombre del sonido en el xml ej: Eructo.mp3
+    public  void setSound(int id){
+        if(sonido!=null){
+            sonido.release();
+        }
+        File soundFile;
+        String soundName = InicioSonidoBestial.sonidos.get(id).getNombre();
+        soundFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), soundName +".mp3");
+        sonido = MediaPlayer.create(this, Uri.fromFile(soundFile));
+        sonido.start();
+    }
     private void agregarContenido() {
 
         tituloSonido.setText(InicioSonidoBestial.sonidos.get(SonidoBestial.getIndicadorSonido()).getNombre());
         tituloSonido.setTextColor(getResources().getColor(colores[SonidoBestial.getIndicadorSonido()]));
         descSonido.setText(InicioSonidoBestial.sonidos.get(SonidoBestial.getIndicadorSonido()).getDescripcion());
         volver.setBackgroundColor(getResources().getColor(colores[SonidoBestial.getIndicadorSonido()]));
+        reply.setBackgroundColor(getResources().getColor(colores[SonidoBestial.getIndicadorSonido()]));
 
+    }
+    public void replySound(View view){
+        getVideo();
+        setSound(SonidoBestial.getIndicadorSonido());
     }
 
     public void aFunc(View view){
+        sonido.stop();
         Intent i = new Intent(this, SonidoBestial.class);
         startActivity(i);
     }

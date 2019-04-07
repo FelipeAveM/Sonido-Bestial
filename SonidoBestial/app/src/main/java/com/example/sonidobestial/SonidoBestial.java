@@ -56,7 +56,7 @@ public class SonidoBestial extends AppCompatActivity {
                 larvitas[i].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        setSound(finalI);
+                        //setSound(finalI);
                         indicadorSonido = finalI;
                         Intent i = new Intent(getApplicationContext(), PupSonidoBestial.class);
                         startActivity(i);
@@ -72,8 +72,9 @@ public class SonidoBestial extends AppCompatActivity {
     }
 
 
+/*
     //Reproducir audio del XML tiene que llamarse como el nombre del sonido en el xml ej: Eructo.mp3
-    private void setSound(int id){
+    public  void setSound(int id){
         if(sonido!=null){
             sonido.release();
         }
@@ -83,7 +84,7 @@ public class SonidoBestial extends AppCompatActivity {
         sonido = MediaPlayer.create(this, Uri.fromFile(soundFile));
         sonido.start();
     }
-
+*/
 
 
     //Para agregar los datos necesarios a la Descripción.
